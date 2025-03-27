@@ -12,15 +12,15 @@
 	--font:				"gg sans", "Noto Sans";		/* font used in most places														*/
 	--textshadow:			transparent;			/* default: transparent				(textshadow for text ontop of accentcolor nodes, ONLY accepts a color, no px)		*/
 	
-	--background:			url(https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/_res/background.jpg);	/* general background image					*/
+	--background:			radial-gradient( circle farthest-corner at 3.2% 49.6%,  rgba(52, 9, 90, 0.87) 0%,rgba(73, 5, 65, 0.72) 83.6% );
 	--backgroundposition:		center;				/* default: center				(position of background - values: [center/top/right/bottom/left])			*/
 	--backgroundsize:		cover;				/* default: cover				(sizefit of background - values: [cover/contain/auto])					*/
 	--backgroundblur:		0;				/* default: 0					(blur in px, only works when --background is set to an image)				*/
 	
-	--popout:			var(--background);		/* default: var(--background)			(change to use another background/color for modals/popouts)				*/
+	--popout:			url(https://cdn.discordapp.com/attachments/1354583736041082941/1354773408176537600/image.png?ex=67e6828e&is=67e5310e&hm=7c7541b5045a1fd21d37928cb60c801016f0be4d0dc0327516cfdacc6fb2fc9b&);    ;		/* default: var(--background)			(change to use another background/color for modals/popouts)				*/
 	--popoutposition:		var(--backgroundposition);	/* default: center				(position of popout - values: [center/top/right/bottom/left])				*/
 	--popoutsize:			var(--backgroundsize);		/* default: cover				(sizefit of popout - values: [cover/contain/auto])					*/
-	--popoutblur:			20px;		/* default: 0					(blur in px, only works when --popout is set to an image)				*/
+	--popoutblur:			50;		/* default: 0					(blur in px, only works when --popout is set to an image)				*/
 	
 	--backdrop:			rgba(0, 0, 0, 0.85);		/* default: rgba(0, 0, 0, 0.85)			(change to use another background/color for backdrops)					*/
 	--backdropposition:		center;				/* default: center				(position of backdrop - values: [center/top/right/bottom/left])				*/
@@ -38,5 +38,11 @@
 }
 
 .visual-refresh .root_bfe55a {
-    background: transparent;
+    background: var(--background_v) var(--backgroundposition_v)/var(--backgroundsize_v);
+    background-attachment: fixed;
+}
+
+.visual-refresh .root_bfe55a::after {
+    background-color: rgba(var(--transparencycolor_v), calc(var(--transparencyalpha_v) + 0.25));
+    backdrop-filter: blur(var(--popoutblur_v));
 }
